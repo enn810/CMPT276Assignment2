@@ -37,7 +37,7 @@ app.post("/input", function(req, res) {
   var submitYear = req.body.inputYear;
   var submitPower = req.body.inputPower;
   var submitHair = req.body.inputHair;
-  var dataInsert = "INSERT INTO Person (name, size, height, type, year, superpower, hair) values ($1, $2, $3, $4, $5, $6, $7);
+  var dataInsert = "INSERT INTO Person (name, size, height, type, year, superpower, hair) values ($1, $2, $3, $4, $5, $6, $7)";
   pool.query(dataInsert, [name, size, height, type, year, superpower, hair], (error,result) => {
     if(error) {
       res.end(error);
