@@ -25,7 +25,7 @@ app.get('/database', (req, res) => {
   //   var results = {'rows':result.rows};
   //   res.render('pages/db', results);
   res.render('pages/Assignment2');
-})
+//})
 });
 
 app.get('/', (req, res) => res.render('pages/index'));
