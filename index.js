@@ -28,5 +28,11 @@ app.get('/database', (req, res) => {
 //})
 });
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.post("/input", function(req, res) {
+  console.log(req.body.inputName);
+});
+
 app.get('/', (req, res) => res.render('pages/index'));
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
