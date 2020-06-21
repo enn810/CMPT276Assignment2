@@ -32,12 +32,12 @@ app.get('/database', (req, res) => {
 app.post("/input", function(req, res) {
   req.body.
   var submitName = req.body.inputName;
-  var submitSize
-  var submitHeight
-  var submitType
-  var submitYear
-  var submitPower
-  var submitHair
+  var submitSize = req.body.inputSize;
+  var submitHeight = req.body.inputHeight;
+  var submitType = req.body.inputType;
+  var submitYear = req.body.inputYear;
+  var submitPower = req.body.inputPower;
+  var submitHair = req.body.inputHair;
   var dataInsert = "INSERT INTO Person (name, size, height, type, year, superpower, hair) values ($1, $2, $3, $4, $5, $6, $7);
   pool.query(dataInsert, [name, size, height, type, year, superpower, hair], (error,result) => {
     if(error) {
