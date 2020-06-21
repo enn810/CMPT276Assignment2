@@ -30,7 +30,6 @@ app.get('/database', (req, res) => {
 });
 
 app.post("/input", function(req, res) {
-  req.body.
   var submitName = req.body.inputName;
   var submitSize = req.body.inputSize;
   var submitHeight = req.body.inputHeight;
