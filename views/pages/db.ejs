@@ -1,5 +1,16 @@
 <!DOCTYPE html>
 <html>
+<style>
+  table {
+    border-collapse: collapse;
+  }
+
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+</style>
 
 <head>
   <title>Person Database</title>
@@ -7,8 +18,9 @@
 
 <body>
   <div class="container">
-    <h2>Database Results</h2>
-
+    <form action="/viewMain" method="POST">
+      <h2>Database Results <input type="submit" value="Return to Person Submission Page"></h2>
+    </form>
     <div>
       <table>
         <tr>
@@ -38,4 +50,13 @@
 </body>
 
 
+
+<div>
+<form action="/viewTable" method="POST">
+  <h1>View Data As Table<input type="submit" value="View Table"></h1>
+</form>
+
+
+
+</div>
 </html>

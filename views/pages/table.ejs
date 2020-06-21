@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <form action="/viewMain" method="POST">
+            <h2>Database Results <input type="submit" value="Return to Person Submission Page"></h2>
+        </form>
+    </div>
+
+    <div>
+        <form action="/viewDatabase" method="POST">
+            <h2>VIEW DATABASE <input type="submit" value="View Database"></h2>
+        </form>
+    </div>
+
+    <div>
+        <% rows.forEach(function(r) { %>
+        <svg>
+            <rect x="50" y="100" height=<%= r.height %>
+                style="fill:blue; stroke:green; stroke-width:4; fill-opacity;0.1;stroke-opacity;0.9" />
+        </svg>
+        <% }); %>
+    </div>
+</body>
+
+</html>

@@ -9,6 +9,7 @@
 <h1> PERSON DATABASE </h1>
 
 <body>
+    <h2>Person Submission</h2>
     <div class="userInput">
         <form action="/input" method="POST">
             <table>
@@ -16,7 +17,7 @@
                     <th>Name</th>
                     <th>Size</th>
                     <th>Height</th>
-                    <th>Type:</th>
+                    <th>Type</th>
                     <th>Year of Birth</th>
                     <th>Superpower</th>
                     <th>Hair Colour</th>
@@ -34,29 +35,45 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <th><input type="submit" value="Submit Person"></th>
-                </tr>
-            </table>
         </form>
+        <th><input type="submit" value="Submit Person"></th>
+        </tr>
+        </table>
+
     </div>
 
+
+    <h2>Person Removal</h2>
     <div>
-        <h>Enter the UID of the Person to be removed</h>
+        <h>Enter the UID of the Person to be Removed</h>
         <form action="/delete" method="POST">
             <input type="number" name="deleteSelection" value="">
-            <input type="submit" name="" value="Delete Entry">
+            <input type="submit" value="Delete Entry">
         </form>
     </div>
 
+
+    <h2>Person Editing</h2>
     <div>
-        <h>Enter the UID of the Person to be edited</h>
+        <h>Enter the UID of the Person to be Edited</h>
         <form action="/change" method="POST">
-            <input type="number" name="changeSelection" value="">
-            <input type="submit" name="" value="Edit"> 
+            <tr>
+                <input type="number" name="changeSelection" placeholder="Enter UID HERE" value="">
+                <td><input type="text" name="changeName" id="nameID" placeholder="Enter NEW Name"></td>
+                <td><input type="number" name="changeSize" id="sizeID" placeholder="Enter NEW Size"></td>
+                <td><input type="number" name="changeHeight" id="heightID" placeholder="Enter NEW Height"></td>
+                <td><input type="text" name="changeType" id="typeID" placeholder="Enter NEW Type"></td>
+                <td><input type="number" name="changeYear" id="yearID" placeholder="Enter NEW Year of Birth"></td>
+                <td><input type="text" name="changePower" id="powerID" placeholder="Enter NEW Superpower"></td>
+                <td><input type="text" name="changeHair" id="hairID" placeholder="Enter NEW Hair Colour"></td>
+            </tr>
+            <input type="submit" value="Submit Changes">
         </form>
-        
-    </div>
 
+    </div>
+    <form action="/viewDatabase" method="POST">
+        <h3>VIEW DATABASE<input type="submit" value="View Database"></h3>
+    </form>
 
 </body>
 
