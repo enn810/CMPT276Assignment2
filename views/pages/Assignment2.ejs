@@ -10,24 +10,38 @@
 
 <body>
     <div class="userInput">
-        <form action="" method="POST">
-            <label for="testid">Name:</label>
-            <input type="text" name="inputName" id="nameID" placeholder="Enter Name">
-            <label for="testid">Size:</label>
-            <input type="text" name="inputSize" id="sizeID" placeholder="Enter Size">
-            <label for="testid">Height:</label>
-            <input type="text" name="inputHeight" id="heightID" placeholder="Enter Height">
-            <label for="testid">Type:</label>
-            <input type="text" name="inputType" id="typeID" placeholder="Enter Type">
-            <label for="testid">Year of Birth:</label>
-            <input type="text" name="inputYear" id="yearID" placeholder="Enter Year of Birth">
-            <label for="testid">Superpower:</label>
-            <input type="text" name="inputPower" id="powerID" placeholder="Enter Superpower">
-            <label for="testid">Hair Colour:</label>
-            <input type="text" name="inputHair" id="hairID" placeholder="Enter Hair Colour">
-            <input type="submit" value="NAME">
+        <form action="/input" method="POST">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Height</th>
+                    <th>Type:</th>
+                    <th>Year of Birth</th>
+                    <th>Superpower</th>
+                    <th>Hair Colour</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="inputName" id="nameID" placeholder="Enter Name"></td>
+                    <td><input type="text" name="inputSize" id="sizeID" placeholder="Enter Size"></td>
+                    <td><input type="text" name="inputHeight" id="heightID" placeholder="Enter Height"></td>
+                    <td><input type="text" name="inputType" id="typeID" placeholder="Enter Type"></td>
+                    <td><input type="text" name="inputYear" id="yearID" placeholder="Enter Year of Birth"></td>
+                    <td><input type="text" name="inputPower" id="powerID" placeholder="Enter Superpower"></td>
+                    <td><input type="text" name="inputHair" id="hairID" placeholder="Enter Hair Colour"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th><input type="submit" value="SUBMIT"></th>
+                </tr>
+            </table>
+
         </form>
     </div>
+
+
 </body>
 
 </html>
