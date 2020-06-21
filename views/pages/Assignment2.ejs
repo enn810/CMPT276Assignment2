@@ -23,10 +23,10 @@
                 </tr>
                 <tr>
                     <td><input type="text" name="inputName" id="nameID" placeholder="Enter Name"></td>
-                    <td><input type="text" name="inputSize" id="sizeID" placeholder="Enter Size"></td>
-                    <td><input type="text" name="inputHeight" id="heightID" placeholder="Enter Height"></td>
+                    <td><input type="number" name="inputSize" id="sizeID" placeholder="Enter Size"></td>
+                    <td><input type="number" name="inputHeight" id="heightID" placeholder="Enter Height"></td>
                     <td><input type="text" name="inputType" id="typeID" placeholder="Enter Type"></td>
-                    <td><input type="text" name="inputYear" id="yearID" placeholder="Enter Year of Birth"></td>
+                    <td><input type="number" name="inputYear" id="yearID" placeholder="Enter Year of Birth"></td>
                     <td><input type="text" name="inputPower" id="powerID" placeholder="Enter Superpower"></td>
                     <td><input type="text" name="inputHair" id="hairID" placeholder="Enter Hair Colour"></td>
                 </tr>
@@ -34,11 +34,27 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <th><input type="submit" value="SUBMIT"></th>
+                    <th><input type="submit" value="Submit Person"></th>
                 </tr>
             </table>
-
         </form>
+    </div>
+
+    <div>
+        <h>Enter the UID of the Person to be removed</h>
+        <form action="/delete" method="POST">
+            <input type="number" name="deleteSelection" value="">
+            <input type="submit" name="" value="Delete Entry">
+        </form>
+    </div>
+
+    <div>
+        <h>Enter the UID of the Person to be edited</h>
+        <form action="/change" method="POST">
+            <input type="number" name="changeSelection" value="">
+            <input type="submit" name="" value="Edit"> 
+        </form>
+        
     </div>
 
 

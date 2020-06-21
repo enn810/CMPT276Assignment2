@@ -42,18 +42,17 @@ app.post("/input", function (req, res) {
   pool.query(dataInsert, [submitName, submitSize, submitHeight, submitType, submitYear, submitPower, submitHair], (error, result) => {
     if (error) {
       res.end(error);
-    }
+    };
   });
-  var getUsersQuery = 'SELECT * FROM person';
-  pool.query(getUsersQuery, (error, result) => {
-    if (error) {
-      res.end("Query is NULL");
-    }
-    var results = { 'rows': result.rows };
-    res.render('pages/db', results);
-    });
-  });
+  res.redirect('pages/db')
+
+app.post("/delete", function(req,res) {
+  var deleteFunction = req.body.deleteSelection;
+  //pool.query("DELETE FROM Person WHERE UID = ${deleteFunction}";, )
+});
+
+
+
 
   app.get('/', (req, res) => res.render('pages/index'));
   app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-
