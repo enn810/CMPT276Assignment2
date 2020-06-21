@@ -30,7 +30,7 @@ app.get('/database', (req, res) => {
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.post("/input", function(req, res) {
+app.post("/userInput", function(req, res) {
   console.log(req.body.inputName);
 });
 
