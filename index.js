@@ -3,6 +3,7 @@ const path = require('path')
 const PORT = process.env.PORT || 5000
 
 const { Pool } = require('pg');
+const { Recoverable } = require('repl');
 var pool;
 pool = new Pool({
   connectionString: 'postgres://postgres:root@localhost:5432/people'
@@ -29,7 +30,21 @@ app.get('/database', (req, res) => {
 });
 
 app.post("/input", function(req, res) {
-  var submiName = req.body.inputName;
+  req.body.
+  var submitName = req.body.inputName;
+  var submitSize
+  var submitHeight
+  var submitType
+  var submitYear
+  var submitPower
+  var submitHair
+  var dataInsert = "INSERT INTO Person (name, size, height, type, year, superpower, hair) values ($1, $2, $3, $4, $5, $6, $7);
+  pool.query(dataInsert, [name, size, height, type, year, superpower, hair], (error,result) => {
+    if(error) {
+      res.end(error);
+    }
+    console.log(result);
+  })
 });
 
 app.get('/', (req, res) => res.render('pages/index'));
