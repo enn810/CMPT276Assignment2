@@ -30,7 +30,7 @@ app.get('/database', (req, res) => {
 
 app.post("/input", function(req, res) {
   var submiName = req.body.inputName;
-}
+});
 
 app.get('/', (req, res) => res.render('pages/index'));
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
