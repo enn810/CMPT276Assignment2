@@ -19,17 +19,17 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => res.render('pages/index'));
 app.get('/database', (req, res) => {
   // var getUsersQuery = 'SELECT * FROM person;';
-  // pool.query(getUsersQuery, (error,result) => {
+  // pool.query(getUsersQuery, (error, result) => {
   //   if (error) {
   //     res.end("Query is NULL");
   //   }
-  //   var results = {'rows':result.rows};
+  //   var results = { 'rows': result.rows };
   //   res.render('pages/db', results);
   res.render('pages/Assignment2');
-//})
+  // });
 });
 
-app.post("/input", function(req, res) {
+app.post("/input", function (req, res) {
   var submitName = req.body.inputName;
   var submitSize = req.body.inputSize;
   var submitHeight = req.body.inputHeight;
@@ -37,14 +37,23 @@ app.post("/input", function(req, res) {
   var submitYear = req.body.inputYear;
   var submitPower = req.body.inputPower;
   var submitHair = req.body.inputHair;
+
   var dataInsert = "INSERT INTO Person (name, size, height, type, year, superpower, hair) values ($1, $2, $3, $4, $5, $6, $7)";
-  pool.query(dataInsert, [name, size, height, type, year, superpower, hair], (error,result) => {
-    if(error) {
+  pool.query(dataInsert, [submitName, submitSize, submitHeight, submitType, submitYear, submitPower, submitHair], (error, result) => {
+    if (error) {
       res.end(error);
     }
-    console.log(result);
-  })
-});
+  });
+  var getUsersQuery = 'SELECT * FROM person';
+  pool.query(getUsersQuery, (error, result) => {
+    if (error) {
+      res.end("Query is NULL");
+    }
+    var results = { 'rows': result.rows };
+    res.render('pages/db', results);
+    });
+  });
 
-app.get('/', (req, res) => res.render('pages/index'));
-app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+  app.get('/', (req, res) => res.render('pages/index'));
+  app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+

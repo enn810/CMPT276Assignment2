@@ -1,25 +1,63 @@
 <!DOCTYPE html>
 <html>
+<style>
+  table,
+  th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  td {
+    border: 1px solid black;
+  }
+</style>
 
 <head>
   <% include ../partials/header.ejs %>
 </head>
 
 <body>
-
-  <% include ../partials/nav.ejs %>
-
   <div class="container">
     <h2>Database Results</h2>
 
-    <ul>
-      <% rows.forEach(function(r) { %>
-      <li><%= r.id %> - <%= r.name %></li>
-      <% }); %>
-    </ul>
+    <div>
+      <table>
+        <tr>
+          <th>UID</th>
+          <th>Name</th>
+          <th>Size</th>
+          <th>Height</th>
+          <th>Type</th>
+          <th>Year of Birth</th>
+          <th>Superpower</th>
+          <th>Hair Colour</th>
+        </tr>
+        <% rows.forEach(function(r) { %>
+        <tr>
+          <th><%= r.id %></th>
+          <th><%= r.name %></th>
+          <th><%= r.size %></th>
+          <th><%= r.height %></th>
+          <th><%= r.type %></th>
+          <th><%= r.year %></th>
+          <th><%= r.superpower %></th>
+          <th><%= r.hair %></th>
+        </tr>
+        <% }); %>
+      </table>
+    </div>
+    <button id="myButton" class="float-left submit-button">Home</button>
 
-  </div>
-
+    <script type="text/javascript">
+      document.getElementById("myButton").onclick = function () {
+        app.get('/database', (req, res) => {
+          res.redirect('pages/Assignment2');
+        };
+    </script>
 </body>
+
 
 </html>
