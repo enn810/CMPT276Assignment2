@@ -12,3 +12,14 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+  get('/', (req,res) => res.render('pages/index'));
+  get('/database', (req,res) => {
+    var getUsersQuery = 'SELECT * FROM Person';
+    pool.query(getUsersQuery, (error, result) => {
+      if (error)
+        res.end(error);
+      var results = {'rows':result.rows}
+      res.render('pages/db',results);
+    })
+  })
