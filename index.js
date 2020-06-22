@@ -10,7 +10,7 @@ pool = new Pool({
   connectionString: process.env.DATABASE_URL
 
 
-var app = express()
+var app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname, 'public')))
