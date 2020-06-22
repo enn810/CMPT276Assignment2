@@ -8,9 +8,9 @@ var pool;
 pool = new Pool({
   //connectionString: 'postgres://postgres:root@localhost:5432/people'
   connectionString: process.env.DATABASE_URL
+})
 
-
-var app = express();
+var app = express()
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname, 'public')))
