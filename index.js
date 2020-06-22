@@ -6,8 +6,8 @@ const { Pool } = require('pg');
 const { Recoverable } = require('repl');
 var pool;
 pool = new Pool({
-  connectionString: 'postgres://postgres:root@localhost:5432/people'
-})
+  //connectionString: 'postgres://postgres:root@localhost:5432/people'
+  connectionString: process.env.DATABASE_URL
 
 
 var app = express()
