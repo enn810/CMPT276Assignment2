@@ -11,6 +11,7 @@ pool = new Pool({
 
 
 var app = express()
+app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'))
@@ -20,7 +21,7 @@ app.get('/database', (req, res) => {
   res.render('pages/Assignment2');
 })
 
-app.post("/input", function (req, res) {
+app.post('/input', function (req, res) {
   console.log(req.body)
   var submitName = req.body.inputName;
   var submitSize = req.body.inputSize;
@@ -30,18 +31,18 @@ app.post("/input", function (req, res) {
   var submitPower = req.body.inputPower;
   var submitHair = req.body.inputHair;
 
-  var dataInsert = "INSERT INTO Person (name, size, height, type, year, superpower, hair) values ($1, $2, $3, $4, $5, $6, $7)";
+  var dataInsert = 'INSERT INTO Person (name, size, height, type, year, superpower, hair) values ($1, $2, $3, $4, $5, $6, $7)';
   pool.query(dataInsert, [submitName, submitSize, submitHeight, submitType, submitYear, submitPower, submitHair], (error, result) => {
     if (error) {
       res.end(error);
     };
   });
-  res.redirect('view');
+  res.redirect('/view');
 });
 
 app.post("/delete", function (req,res) {
   var deleteFunction = req.body.deleteSelection;
-  pool.query("DELETE FROM Person WHERE id = $1", [deleteFunction], (error, result) => {
+  pool.query('DELETE FROM Person WHERE id = $1', [deleteFunction], (error, result) => {
     if (error) {
       res.send(error);
     };
@@ -60,11 +61,11 @@ app.post("/change" , function (req,res) {
   var changeHairSubmit = req.body.changeHair;
 
   var selectedPerson = req.body.changeSelection;
-  pool.query("UPDATE Person Set name = $1, size = $2, height = $3, type = $4, year = $5, superpower = $6, hair = $7 where ID = $8", [changeNameSubmit, changeSizeSubmit, changeHeightSubmit, changeTypeSubmit, changeYearSubmit, changePowerSubmit, changeHairSubmit, selectedPerson], (error, result) => {
+  pool.query('UPDATE Person Set name = $1, size = $2, height = $3, type = $4, year = $5, superpower = $6, hair = $7 where ID = $8', [changeNameSubmit, changeSizeSubmit, changeHeightSubmit, changeTypeSubmit, changeYearSubmit, changePowerSubmit, changeHairSubmit, selectedPerson], (error, result) => {
     if (error) {
       res.end(error);
     };
-    res.redirect('view')
+    res.redirect('/view')
   });
 });
 
@@ -87,8 +88,8 @@ app.get('/table', (req, res) => {
   });
 })
 
-app.post("/viewTable", function (req,res) {
-  res.redirect('table')
+app.post("/viewGraph", function (req,res) {
+  res.redirect('view2')
 })
 
 app.get('/view', (req, res) => {
@@ -102,7 +103,7 @@ app.get('/view', (req, res) => {
   });
 })
 
-app.get('/viewTable', (req, res) => {
+app.get('/view2', (req, res) => {
   pool.query("SELECT * FROM Person", (error, result) => {
     if (error) {
       res.end(error);

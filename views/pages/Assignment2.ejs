@@ -60,10 +60,10 @@
             <tr>
                 <input type="number" name="changeSelection" placeholder="Enter UID HERE" value="">
                 <td><input type="text" name="changeName" id="nameID" placeholder="Enter NEW Name"></td>
-                <td><input type="number" name="changeSize" id="sizeID" placeholder="Enter NEW Size"></td>
-                <td><input type="number" name="changeHeight" id="heightID" placeholder="Enter NEW Height"></td>
+                <td><input type='number' name="changeSize" id="sizeID" placeholder="Enter NEW Size"></td>
+                <td><input type='number' name="changeHeight" id="heightID" placeholder="Enter NEW Height"></td>
                 <td><input type="text" name="changeType" id="typeID" placeholder="Enter NEW Type"></td>
-                <td><input type="number" name="changeYear" id="yearID" placeholder="Enter NEW Year of Birth"></td>
+                <td><input type='number' name="changeYear" id="yearID" placeholder="Enter NEW Year of Birth"></td>
                 <td><input type="text" name="changePower" id="powerID" placeholder="Enter NEW Superpower"></td>
                 <td><input type="text" name="changeHair" id="hairID" placeholder="Enter NEW Hair Colour"></td>
             </tr>
@@ -75,6 +75,9 @@
         <h3>VIEW DATABASE<input type="submit" value="View Database"></h3>
     </form>
 
+    <form action="/viewGraph" method="POST">
+        <h3>VIEW GRAPH <input type="submit" value="View Graph"></h3>
+    </form>
 </body>
 
 </html>
